@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>실습 2 - 클릭 카운터</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; padding-top: 60px; }
+    #count { font-size: 64px; margin: 24px; }
+    button { font-size: 24px; width: 56px; height: 56px; border-radius: 12px;
+             border: 1px solid #E5E7EB; background: #FFF; cursor: pointer; }
+    button:hover { background: #EFF6FF; }
+  </style>
+</head>
+<body>
+  <h1>클릭 카운터</h1>
+  <div id="count">0</div>
+  <button id="minus">−</button>
+  <button id="plus">+</button>
+
+  <script>
+    let count = 0; // 상태(state): 현재 숫자
+    const countElement = document.querySelector("#count");
+
+    // 상태를 화면에 반영하는 함수
+    function render() {
+      countElement.textContent = count;
+    }
+
+    document.querySelector("#plus").addEventListener("click", function () {
+      count++;
+      render();
+    });
+
+    document.querySelector("#minus").addEventListener("click", function () {
+      count--;
+      render();
+    });
+  </script>
+</body>
+</html>

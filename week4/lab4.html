@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>실습 4 - 객체 배열</title>
+</head>
+<body>
+  <h1>실습 4: 학생 객체 배열 (콘솔 확인)</h1>
+
+  <script>
+    // 객체: 이름(key)과 값(value)의 묶음
+    const students = [
+      { name: "홍길동", score: 85 },
+      { name: "김철수", score: 92 },
+      { name: "이영희", score: 78 },
+      { name: "박민수", score: 95 },
+    ];
+
+    // 전체 평균
+    let total = 0;
+    for (const student of students) {
+      total += student.score; // 점(.)으로 객체의 값에 접근
+    }
+    const average = total / students.length;
+    console.log("전체 평균:", average);
+
+    // 최고 득점자 찾기
+    let top = students[0];
+    for (const student of students) {
+      if (student.score > top.score) {
+        top = student;
+      }
+    }
+    console.log(`최고 득점자: ${top.name} (${top.score}점)`);
+  </script>
+</body>
+</html>

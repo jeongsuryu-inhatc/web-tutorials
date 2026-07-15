@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo - 실습 4 (완료 체크)</title>
+  <style>
+    body { font-family: sans-serif; background: #F9FAFB; color: #1F2937; }
+    main { max-width: 480px; margin: 40px auto; padding: 0 16px; }
+    h1 { text-align: center; }
+    .input-row { display: flex; gap: 8px; }
+    #todo-input { flex: 1; padding: 12px; border: 1px solid #E5E7EB; border-radius: 8px; }
+    #add-btn { background: #2563EB; color: #FFF; border: none; border-radius: 8px;
+               padding: 0 20px; cursor: pointer; }
+    #todo-list { padding: 0; }
+    #todo-list li { background: #FFF; border: 1px solid #E5E7EB; border-radius: 8px;
+                    padding: 12px; margin: 8px 0; list-style: none;
+                    display: flex; align-items: center; gap: 8px; }
+    #todo-list li span { flex: 1; }
+    .done { text-decoration: line-through; color: #9CA3AF; } /* 완료 시 취소선 */
+    .delete-btn { background: none; border: none; color: #DC2626; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>나의 할 일</h1>
+    <div class="input-row">
+      <input type="text" id="todo-input" placeholder="할 일을 입력하세요">
+      <button id="add-btn">추가</button>
+    </div>
+    <ul id="todo-list"></ul>
+  </main>
+
+  <script>
+    const todos = [];
+    const input = document.querySelector("#todo-input");
+    const listElement = document.querySelector("#todo-list");
+
+    function render() {
+      listElement.innerHTML = "";
+      todos.forEach(function (todo, index) {
+        const li = document.createElement("li");
+
+        // 체크박스: 완료/미완료 토글
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.checked = todo.done;
+        checkbox.addEventListener("change", function () {
+          todo.done = !todo.done; // 상태를 뒤집고
+          render();               // 다시 그린다
+        });
+
+        const span = document.createElement("span");
+        span.textContent = todo.title;
+        if (todo.done) {
+          span.className = "done"; // 완료면 취소선 클래스
+        }
+
+        const deleteBtn = document.createElement("button");
+        deleteBtn.className = "delete-btn";
+        deleteBtn.textContent = "삭제";
+        deleteBtn.addEventListener("click", function () {
+          todos.splice(index, 1);
+          render();
+        });
+
+        li.appendChild(checkbox);
+        li.appendChild(span);
+        li.appendChild(deleteBtn);
+        listElement.appendChild(li);
+      });
+    }
+
+    function addTodo() {
+      const title = input.value.trim();
+      if (title === "") return;
+      todos.push({ title: title, done: false });
+      input.value = "";
+      render();
+    }
+
+    document.querySelector("#add-btn").addEventListener("click", addTodo);
+    input.addEventListener("keydown", function (event) {
+      if (event.key === "Enter") addTodo();
+    });
+
+    render();
+  </script>
+</body>
+</html>

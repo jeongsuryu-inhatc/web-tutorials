@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>홍길동의 홈페이지</title>
+  <!-- 실습 3: CSS 파일 분리 후 link로 연결 -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1 id="site-title">홍길동의 홈페이지</h1>
+    <nav>
+      <a href="#about">소개</a>
+      <a href="#timetable">시간표</a>
+      <a href="#contact">연락처</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="about" class="card">
+      <h2>소개</h2>
+      <img src="https://placehold.co/200x200" alt="프로필 사진">
+      <p>안녕하세요, 웹 프로그래밍을 배우고 있는 홍길동입니다.</p>
+      <ul>
+        <li>전공: 컴퓨터공학</li>
+        <li>목표: 나만의 Todo 서비스 배포</li>
+      </ul>
+    </section>
+
+    <section id="timetable" class="card">
+      <h2>일주일 시간표</h2>
+      <table>
+        <tr>
+          <th>교시</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th>
+        </tr>
+        <tr>
+          <td>1교시</td><td>웹 프로그래밍</td><td></td><td>자료구조</td><td></td><td>영어</td>
+        </tr>
+        <tr>
+          <td>2교시</td><td>웹 프로그래밍</td><td>수학</td><td>자료구조</td><td>교양</td><td></td>
+        </tr>
+      </table>
+    </section>
+
+    <section id="contact" class="card">
+      <h2>연락처</h2>
+      <form>
+        <p><label>이름 <input type="text" name="name"></label></p>
+        <p><label>이메일 <input type="email" name="email"></label></p>
+        <p><label>메시지<br><textarea name="message" rows="4"></textarea></label></p>
+        <button type="submit">보내기</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 홍길동</p>
+  </footer>
+</body>
+</html>

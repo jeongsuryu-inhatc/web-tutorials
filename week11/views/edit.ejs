@@ -1,0 +1,14 @@
+<%- include("partials/header") %>
+
+<h1>할 일 수정</h1>
+
+<form method="POST" action="/todos/<%= todo.id %>/edit" class="add-form">
+  <input type="text" name="title" value="<%= todo.title %>" required>
+  <input type="date" name="due_date"
+         value="<%= todo.due_date ? new Date(todo.due_date).toISOString().slice(0, 10) : '' %>">
+  <button type="submit">저장</button>
+</form>
+
+<p><a href="/todos">← 목록으로</a></p>
+
+<%- include("partials/footer") %>

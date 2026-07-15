@@ -1,0 +1,12 @@
+{
+  "name": "week9-ejs",
+  "version": "1.0.0",
+  "description": "9주차 EJS 뷰 템플릿 실습",
+  "scripts": {
+    "start": "node lab4_app.js"
+  },
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.19.0"
+  }
+}

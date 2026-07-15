@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title><%= title %></title>
+</head>
+<body>
+  <h1><%= title %></h1>
+
+  <!-- <%% %>: JS 코드 실행 (출력은 안 됨) -->
+  <% if (items.length === 0) { %>
+    <p>항목이 없습니다.</p>
+  <% } else { %>
+    <ul>
+      <% items.forEach(function (item) { %>
+        <li><%= item %></li>
+      <% }); %>
+    </ul>
+  <% } %>
+</body>
+</html>

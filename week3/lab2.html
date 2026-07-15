@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>실습 2 - 변수와 자료형</title>
+</head>
+<body>
+  <h1>실습 2: 변수와 자료형 (콘솔 확인)</h1>
+
+  <script>
+    // const: 다시 할당할 수 없는 변수 (기본으로 사용)
+    const name = "홍길동";
+    const major = "컴퓨터공학";
+
+    // let: 값이 바뀔 수 있는 변수
+    let age = 20;
+    age = age + 1; // 값 변경 가능
+
+    const isStudent = true;
+
+    // typeof: 자료형을 알려준다
+    console.log(name, "→", typeof name);       // string (문자열)
+    console.log(age, "→", typeof age);         // number (숫자)
+    console.log(isStudent, "→", typeof isStudent); // boolean (불리언)
+
+    // 템플릿 문자열: `${}` 안에 변수를 넣을 수 있다
+    console.log(`저는 ${major}을 전공하는 ${age}살 ${name}입니다.`);
+  </script>
+</body>
+</html>

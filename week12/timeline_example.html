@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI 역사 타임라인</title>
+  <style>
+    body { font-family: 'Malgun Gothic', sans-serif; background: #F9FAFB; color: #1F2937; margin: 0; }
+    main { max-width: 640px; margin: 40px auto; padding: 0 16px; }
+    h1 { text-align: center; }
+    .timeline { position: relative; padding-left: 24px; border-left: 2px solid #2563EB; }
+    .event { position: relative; margin: 0 0 28px 12px; background: #FFF;
+             border: 1px solid #E5E7EB; border-radius: 12px; padding: 16px 20px; }
+    .event::before { content: ""; position: absolute; left: -44px; top: 20px;
+                     width: 12px; height: 12px; border-radius: 50%;
+                     background: #2563EB; border: 3px solid #F9FAFB; }
+    .year { color: #2563EB; font-weight: bold; }
+    h3 { margin: 4px 0 8px; }
+    p { margin: 0; color: #4B5563; font-size: 14px; line-height: 1.6; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>AI 역사 타임라인</h1>
+
+    <div class="timeline">
+      <div class="event">
+        <span class="year">1950</span>
+        <h3>튜링 테스트</h3>
+        <p>앨런 튜링이 "기계가 생각할 수 있는가"라는 질문과 함께 기계 지능을 판별하는 테스트를 제안했다.</p>
+      </div>
+
+      <div class="event">
+        <span class="year">1956</span>
+        <h3>다트머스 회의</h3>
+        <p>존 매카시 등이 모여 '인공지능(Artificial Intelligence)'이라는 용어를 처음 사용했다. AI 연구의 출발점.</p>
+      </div>
+
+      <div class="event">
+        <span class="year">1990s~</span>
+        <h3>머신러닝의 부상</h3>
+        <p>규칙을 직접 코딩하는 대신, 데이터에서 패턴을 학습하는 접근이 주류가 되기 시작했다.</p>
+      </div>
+
+      <div class="event">
+        <span class="year">2012</span>
+        <h3>딥러닝의 돌파구 (AlexNet)</h3>
+        <p>딥 뉴럴 네트워크가 이미지 인식 대회(ImageNet)에서 압도적 성능을 내며 딥러닝 시대를 열었다.</p>
+      </div>
+
+      <div class="event">
+        <span class="year">2016</span>
+        <h3>알파고 vs 이세돌</h3>
+        <p>딥마인드의 알파고가 이세돌 9단을 4:1로 이겼다. 4국의 '78수'는 인간이 AI를 이긴 명장면으로 남았다.</p>
+      </div>
+
+      <div class="event">
+        <span class="year">2017</span>
+        <h3>트랜스포머의 등장</h3>
+        <p>구글의 논문 "Attention Is All You Need"가 트랜스포머 구조를 제안했다. 오늘날 LLM의 기반이 되었다.</p>
+      </div>
+
+      <div class="event">
+        <span class="year">2022~</span>
+        <h3>생성형 AI의 대중화</h3>
+        <p>ChatGPT, Claude 등 대화형 LLM이 등장하며 누구나 AI를 일상과 개발에 활용하는 시대가 열렸다.</p>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

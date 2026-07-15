@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AuraDrop | Pure Fluidity</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#dfdfe1",
+                        "inverse-on-surface": "#f1f0f5",
+                        "on-tertiary-container": "#fcfcfc",
+                        "outline-variant": "#c1c6d7",
+                        "surface-container-high": "#e9e7ed",
+                        "primary-fixed-dim": "#adc6ff",
+                        "inverse-primary": "#adc6ff",
+                        "inverse-surface": "#2f3034",
+                        "tertiary-fixed": "#e2e2e2",
+                        "on-background": "#1a1b1f",
+                        "on-primary-fixed": "#001a41",
+                        "surface-variant": "#e3e2e7",
+                        "primary-container": "#0070eb",
+                        "outline": "#717786",
+                        "on-primary-container": "#fefcff",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#dad9df",
+                        "surface-container-low": "#f4f3f8",
+                        "surface-bright": "#faf8fe",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed-variant": "#454749",
+                        "primary-fixed": "#d8e2ff",
+                        "surface-container": "#eeedf3",
+                        "on-surface-variant": "#414755",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "on-error": "#ffffff",
+                        "secondary": "#5d5e60",
+                        "secondary-fixed-dim": "#c6c6c8",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e3e2e7",
+                        "tertiary-container": "#737575",
+                        "surface-tint": "#005bc1",
+                        "primary": "#0058bc",
+                        "on-secondary-fixed": "#1a1c1d",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed-variant": "#004493",
+                        "background": "#faf8fe",
+                        "on-secondary-container": "#616365",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "on-surface": "#1a1b1f",
+                        "surface": "#faf8fe",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#5a5c5c",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#e2e2e4"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "margin-mobile": "20px",
+                        "container-max": "1200px",
+                        "gutter": "24px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["14px", {"lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["17px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "display-lg-mobile": ["36px", {"lineHeight": "42px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #faf8fe;
+            scroll-behavior: smooth;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .text-gradient {
+            background: linear-gradient(180deg, #1a1b1f 0%, #5d5e60 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden text-on-surface">
+<!-- TopNavBar (Shared Component Identity) -->
+<nav class="fixed top-4 left-1/2 -translate-x-1/2 w-[90%] max-w-[1200px] rounded-full backdrop-blur-xl bg-white/10 border border-white/20 shadow-xl z-[100] flex justify-between items-center px-8 py-4">
+<div class="font-headline-md text-headline-md font-bold tracking-tight text-primary">AuraDrop</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-body-lg text-body-lg text-primary font-semibold border-b-2 border-primary pb-1 transition-colors duration-300" href="#">Experience</a>
+<a class="font-body-lg text-body-lg text-on-surface/70 hover:text-primary transition-colors duration-300" href="#">Science</a>
+<a class="font-body-lg text-body-lg text-on-surface/70 hover:text-primary transition-colors duration-300" href="#">Products</a>
+<a class="font-body-lg text-body-lg text-on-surface/70 hover:text-primary transition-colors duration-300" href="#">Sustainability</a>
+</div>
+<button class="bg-primary text-white px-6 py-2 rounded-full font-semibold hover:scale-105 active:scale-95 transition-all">Order Now</button>
+</nav>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex flex-col items-center justify-center pt-32 pb-20 px-margin-mobile md:px-margin-desktop text-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-gradient-to-b from-surface-bright to-background opacity-50"></div>
+</div>
+<div class="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
+<span class="font-label-caps text-label-caps text-primary tracking-[0.2em] mb-6 block uppercase">A New Dimension of Hydration</span>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-gradient mb-8 leading-tight">
+                Pure Fluidity. <br class="hidden md:block"/> Sculpted by Light.
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mb-12">
+                Experience the intersection of advanced bio-molecular science and aesthetic perfection. AuraDrop reimagines the very essence of water.
+            </p>
+<div class="flex flex-col sm:flex-row gap-4 mb-20">
+<button class="bg-primary text-on-primary font-semibold px-10 py-4 rounded-full text-lg shadow-lg hover:shadow-primary/20 transition-all">Get Started</button>
+<button class="glass-card text-on-surface font-semibold px-10 py-4 rounded-full text-lg hover:bg-white/60 transition-all">Explore Science</button>
+</div>
+<!-- Central Visual Asset -->
+<div class="w-full max-w-[600px] hero-animation mt-8">
+<img class="w-full h-auto drop-shadow-2xl object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjdxz081tFyPYbWus9yxA8cPoaknos-h_k8wsjt_LvF0E38U0AqXtazU7eWgs9RnjF2ohxFjI2GteIrqSpAgb1yN9lG-ihxDCS2c5VvpI-mKlRQcpGUmtLA4-42CUSoG9MUNO_498R3U8YV6hky7QamKJ-uo8DKK1Yhf_MDWbmhYTR6te0SyK_QpHGKlVcD-WlMM5yYj_gsGimA7_KO4VxAM-m3oECUNBS8CgbKFJ8HItm2CNH6tcaqI76in4O3k1ADkmeMMLZ4os"/>
+</div>
+</div>
+</section>
+<!-- The Essence (Bento Grid Style) -->
+<section class="py-32 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="text-center mb-24 reveal">
+<h2 class="font-display-lg text-display-lg text-gradient mb-4">The Essence</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Beyond hydration lies a sensory journey designed for the modern connoisseur of well-being.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Large Feature -->
+<div class="md:col-span-8 glass-card rounded-xl p-12 flex flex-col justify-between min-h-[500px] reveal">
+<div>
+<span class="material-symbols-outlined text-primary text-4xl mb-6">opacity</span>
+<h3 class="font-headline-md text-headline-md mb-4">Molecular Purity</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">Our proprietary filtration process strips away every impurity, leaving behind only the most essential structure of H2O.</p>
+</div>
+<div class="mt-8 rounded-lg overflow-hidden h-64 relative">
+<img class="w-full h-full object-cover" data-alt="A hyper-realistic, macro shot of microscopic water crystals forming perfectly symmetrical hexagonal patterns in a bright, ethereal white environment. Soft blue light refracts through the ice-like structures, creating a clean, laboratory-grade aesthetic that feels premium and scientifically advanced." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwhXGBDDToKWOPtsA1AwEYezvayCNQu4OBz2Dwj9S6bVf0kPDUx6HMiZw2Pzh2Zzo9BH02-0WIhZ3rVNs0hVIwjv3RojxX8TPfyYAOPpr1IsHxK6fOFYV9bYtMgdcqKbRdhFfqlBQP9rd4nAFk6uzL9ShUlV0xeeYgm9JynDNAhfhj5y_oumnmYXGhhZG6IYik6NwVgBonULfyMUNybZN3wBH7j2SGsd9a0NxbLwfSzaYEU2FOua9zDSFAJrKXsVHSGh_26Ckd6CI"/>
+</div>
+</div>
+<!-- Small Feature 1 -->
+<div class="md:col-span-4 bg-surface-container-high rounded-xl p-8 flex flex-col items-center text-center reveal" style="transition-delay: 100ms;">
+<span class="material-symbols-outlined text-primary text-4xl mb-6">waves</span>
+<h3 class="font-headline-md text-headline-md mb-4">Fluid Design</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">The ergonomic form factor mimics the natural tension of a water drop, resting perfectly in your hand.</p>
+<div class="mt-auto w-full aspect-square relative flex items-center justify-center">
+<img class="w-4/5 h-auto object-contain" data-alt="A minimalist 3D render of a sleek, glass vessel shaped like an elongated droplet, reflecting a soft studio lighting setup. The background is a seamless light grey, emphasizing the clarity and transparency of the design. The mood is calm, sophisticated, and high-end tech-lifestyle." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBceCeBdZto2bIDMs1dr3zkqAiHGO48ZzEO66DN8YWurfC2PJhCgKmsWE86CwqNHYGt_XlHYIhY-SwuhgF-CEi1bgfa_f6-DmZsIZIC97j0AITOUU-elXegV_Lt3j7BGAA061FLL9b8xQHaYDEQc0ErgBllqj2DqtvYl0ehnNk1Vg6gJhGaejxQVcWH-z723B2GQmorLbaPtTv4y5pxuMTnPZIrBn10qxQ_GK8OsYmWQAerlgEGrUCiDGQF33SbC0uG5HcuWojotvY"/>
+</div>
+</div>
+<!-- Small Feature 2 -->
+<div class="md:col-span-4 glass-card rounded-xl p-8 flex flex-col justify-end min-h-[400px] reveal" style="transition-delay: 200ms;">
+<div class="mb-6">
+<span class="material-symbols-outlined text-primary text-4xl">energy_savings_leaf</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4">Ethical Source</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Sourced from untouched subterranean aquifers that have been protected for millennia.</p>
+</div>
+<!-- Large Feature 2 -->
+<div class="md:col-span-8 bg-surface-container-highest rounded-xl overflow-hidden flex flex-col md:flex-row reveal" style="transition-delay: 300ms;">
+<div class="p-12 md:w-1/2 flex flex-col justify-center">
+<h3 class="font-headline-md text-headline-md mb-4">Bio-Adaptive Mineralization</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6">We re-infuse each drop with a precise balance of minerals designed to optimize cellular absorption and cognitive clarity.</p>
+<a class="text-primary font-semibold flex items-center gap-2 group" href="#">
+                        Read the Paper 
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<div class="md:w-1/2 h-full">
+<img class="w-full h-full object-cover" data-alt="A clean, minimalist laboratory setting featuring a glass container filled with clear liquid. Soft particles of silver and gold light float inside the water, symbolizing advanced mineralization. High-key lighting, soft shadows, and a palette of whites and cool blues suggest premium medical-grade precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPmvfct1LcgPAhzY17AdcoI75T43fi_FBMDKIJDAJPiHqj3wU-_872Yoi3dq2o2XIv8R2ZP3VzM1vtNoY4AaKEGA0LOMS8AvY5rUSSBZeAEMsORWaBvpn23V_Qb524bnqPq2yCI96tIkbWjCuSxdDqAo1Zc2tfm--G_FS3Im5xbziwtUhn-VWECvCii3Be5JFnEA3xaA8o2qrdaG2XYxl_TmO-c_Eko-XyKqGlcsTzrTj9bgNfxD8ZTUhlD8PIHoJxLZNWT9i06AU"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Sustainability Section -->
+<section class="py-32 bg-white relative overflow-hidden">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex flex-col md:flex-row items-center gap-20">
+<div class="md:w-1/2 reveal">
+<img class="w-full aspect-[4/5] object-cover rounded-xl shadow-2xl" data-alt="A lush, sun-drenched forest scene with sunlight filtering through vibrant green leaves, casting soft dapples of light on a mossy ground. The image is captured with a high-end cinematic lens, focusing on the pristine nature. The colors are natural and soothing, aligning with a premium sustainability brand aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlWasnhjQwvzNs-AAHJpXEU3ATj_-nfvXsuyjW7sfQGW28hsxEot9pM7DPX7n8XLewBh_lZvT4eW_fLim05Z4bjAgddArXmJ6NCk2PE7dalqwzwBhvWiYpGQ9sSo_Jw5l5IEabx-5gDNgKXPmjBPDYgqdgr31JsYztcnRq_FX9t2wiO5p7lFSALlQWAQ0bjvaQ0BsWVRJ3s-4CcI_w9hEuhUfwJbqQB6SJleWQgpzfxWyvhe-SFpK7cd6ADjmDQqBQOyyNy-df7Zk"/>
+</div>
+<div class="md:w-1/2 reveal" style="transition-delay: 200ms;">
+<span class="font-label-caps text-label-caps text-tertiary tracking-widest mb-4 block">OUR COMMITMENT</span>
+<h2 class="font-display-lg text-display-lg text-gradient mb-8">Circular by Nature.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8 leading-relaxed">
+                        AuraDrop isn't just about what's inside. Every vessel is crafted from 100% infinitely recyclable biopolymer glass, ensuring that our footprint is as clear as our water. 
+                    </p>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary p-2 bg-primary-fixed rounded-full">eco</span>
+<div>
+<h4 class="font-semibold text-on-surface">Zero Plastic Mission</h4>
+<p class="text-body-sm text-on-surface-variant">We have eliminated 100% of single-use plastics from our entire supply chain.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary p-2 bg-primary-fixed rounded-full">wb_sunny</span>
+<div>
+<h4 class="font-semibold text-on-surface">Solar Powered Filtration</h4>
+<p class="text-body-sm text-on-surface-variant">Our facilities operate exclusively on renewable energy harvested on-site.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter CTA -->
+<section class="py-32 px-margin-mobile md:px-margin-desktop text-center">
+<div class="max-w-3xl mx-auto glass-card rounded-xl p-16 reveal">
+<h2 class="font-headline-md text-headline-md mb-4">Join the Aura List</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10">Be the first to experience our limited edition seasonal infusions.</p>
+<form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto" onsubmit="event.preventDefault()">
+<input class="flex-grow bg-surface-container-low border-none rounded-full px-6 py-4 focus:ring-2 focus:ring-primary transition-all" placeholder="Email Address" type="email"/>
+<button class="bg-on-surface text-white px-8 py-4 rounded-full font-semibold hover:bg-on-surface/90 transition-all">Subscribe</button>
+</form>
+</div>
+</section>
+<!-- Footer (Shared Component Identity) -->
+<footer class="w-full py-16 px-margin-desktop bg-surface-container-low border-t border-outline-variant/20">
+<div class="max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-gutter">
+<div class="flex flex-col gap-4">
+<div class="font-headline-md text-headline-md text-on-surface font-bold">AuraDrop</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-xs">Elevating the standard of purity through innovative design and scientific rigor.</p>
+</div>
+<div class="flex flex-wrap gap-x-12 gap-y-6">
+<div class="flex flex-col gap-2">
+<span class="font-label-caps text-primary uppercase text-[10px]">Product</span>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-all" href="#">Experience</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-all" href="#">Science</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-all" href="#">Products</a>
+</div>
+<div class="flex flex-col gap-2">
+<span class="font-label-caps text-primary uppercase text-[10px]">Company</span>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-all" href="#">Sustainability</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-all" href="#">Press Kit</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-all" href="#">Contact</a>
+</div>
+<div class="flex flex-col gap-2">
+<span class="font-label-caps text-primary uppercase text-[10px]">Legal</span>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-all" href="#">Privacy Policy</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-all" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto mt-16 pt-8 border-t border-outline-variant/20 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-body-sm text-body-sm text-on-surface-variant">© 2024 AuraDrop Aesthetic. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="text-on-surface-variant hover:text-primary" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="text-on-surface-variant hover:text-primary" href="#"><span class="material-symbols-outlined">alternate_email</span></a>
+<a class="text-on-surface-variant hover:text-primary" href="#"><span class="material-symbols-outlined">share</span></a>
+</div>
+</div>
+</footer>
+<script>
+        // Simple reveal animation on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Interactive micro-interaction for glass cards
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+    </script>
+</body></html>

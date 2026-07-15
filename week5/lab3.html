@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>실습 3 - 입력값 표시</title>
+</head>
+<body>
+  <h1>입력한 글을 화면에 표시하기</h1>
+
+  <input type="text" id="message-input" placeholder="아무 글이나 입력하세요">
+  <button id="show-btn">표시</button>
+
+  <p id="output"></p>
+
+  <script>
+    const input = document.querySelector("#message-input");
+    const output = document.querySelector("#output");
+
+    document.querySelector("#show-btn").addEventListener("click", function () {
+      // input.value: 입력창에 적힌 값
+      if (input.value.trim() === "") {
+        output.textContent = "내용을 입력해 주세요.";
+        return;
+      }
+      output.textContent = `입력한 내용: ${input.value}`;
+      input.value = ""; // 입력창 비우기
+    });
+  </script>
+</body>
+</html>

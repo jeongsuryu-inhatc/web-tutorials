@@ -1,0 +1,12 @@
+{
+  "name": "week8-express-basic",
+  "version": "1.0.0",
+  "description": "8주차 Express 기초 실습",
+  "main": "lab2_server.js",
+  "scripts": {
+    "start": "node lab5_static.js"
+  },
+  "dependencies": {
+    "express": "^4.19.0"
+  }
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>실습 3 - 연산자와 홀짝 판별</title>
+</head>
+<body>
+  <h1>실습 3: 홀짝 판별 (콘솔 확인)</h1>
+
+  <script>
+    const number = 7;
+
+    // % (나머지 연산자): 2로 나눈 나머지가 0이면 짝수
+    if (number % 2 === 0) {
+      console.log(`${number}은(는) 짝수입니다.`);
+    } else {
+      console.log(`${number}은(는) 홀수입니다.`);
+    }
+
+    // 비교·논리 연산자 연습
+    const a = 10, b = 3;
+    console.log("a > b :", a > b);            // true
+    console.log("a === b :", a === b);        // false
+    console.log("a > 5 && b > 5 :", a > 5 && b > 5); // 둘 다 참일 때만 true
+    console.log("a > 5 || b > 5 :", a > 5 || b > 5); // 하나만 참이어도 true
+  </script>
+</body>
+</html>

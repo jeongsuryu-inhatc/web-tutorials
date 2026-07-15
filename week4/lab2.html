@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>실습 2 - 함수</title>
+</head>
+<body>
+  <h1>실습 2: 사칙연산 함수 (콘솔 확인)</h1>
+
+  <script>
+    // 함수: 매개변수(a, b)를 받아 결과를 반환(return)한다
+    function add(a, b) {
+      return a + b;
+    }
+
+    function sub(a, b) {
+      return a - b;
+    }
+
+    function mul(a, b) {
+      return a * b;
+    }
+
+    function div(a, b) {
+      if (b === 0) {
+        return "0으로 나눌 수 없습니다";
+      }
+      return a / b;
+    }
+
+    console.log("add(10, 3) =", add(10, 3));
+    console.log("sub(10, 3) =", sub(10, 3));
+    console.log("mul(10, 3) =", mul(10, 3));
+    console.log("div(10, 3) =", div(10, 3));
+    console.log("div(10, 0) =", div(10, 0));
+  </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+/* 실습 4: Flexbox 레이아웃 */
+
+body {
+  font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+  background-color: #F9FAFB;
+  color: #1F2937;
+  margin: 0;
+}
+
+/* 가로 내비게이션: 로고는 왼쪽, 메뉴는 오른쪽 */
+.site-header {
+  display: flex;
+  justify-content: space-between; /* 양 끝으로 벌리기 */
+  align-items: center;
+  padding: 16px 32px;
+  background: #FFFFFF;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.logo {
+  font-weight: bold;
+  color: #2563EB;
+  letter-spacing: 2px;
+}
+
+nav a {
+  color: #1F2937;
+  text-decoration: none;
+  margin-left: 24px;
+}
+
+nav a:hover {
+  color: #2563EB;
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+/* 카드 3개를 가로로 배치 */
+.card-row {
+  display: flex;
+  gap: 16px; /* 카드 사이 간격 */
+}
+
+.card-row .card {
+  flex: 1; /* 같은 너비로 나누기 */
+}
+
+.card {
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  padding: 24px;
+  margin: 16px 0;
+  transition: background-color 0.3s, transform 0.3s; /* hover 트랜지션 */
+}
+
+.card:hover {
+  background-color: #EFF6FF;
+  transform: translateY(-4px);
+}
+
+footer {
+  text-align: center;
+  padding: 24px;
+  color: #6B7280;
+}

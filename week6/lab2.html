@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo - 실습 2 (상태와 렌더링 분리)</title>
+  <style>
+    body { font-family: sans-serif; background: #F9FAFB; color: #1F2937; }
+    main { max-width: 480px; margin: 40px auto; padding: 0 16px; }
+    h1 { text-align: center; }
+    .input-row { display: flex; gap: 8px; }
+    #todo-input { flex: 1; padding: 12px; border: 1px solid #E5E7EB; border-radius: 8px; }
+    #add-btn { background: #2563EB; color: #FFF; border: none; border-radius: 8px;
+               padding: 0 20px; cursor: pointer; }
+    #todo-list { padding: 0; }
+    #todo-list li { background: #FFF; border: 1px solid #E5E7EB; border-radius: 8px;
+                    padding: 12px; margin: 8px 0; list-style: none; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>나의 할 일</h1>
+    <div class="input-row">
+      <input type="text" id="todo-input" placeholder="할 일을 입력하세요">
+      <button id="add-btn">추가</button>
+    </div>
+    <ul id="todo-list"></ul>
+  </main>
+
+  <script>
+    // ===== 상태(state): 데이터는 배열이 갖고 있다 =====
+    const todos = [
+      { title: "HTML 복습하기", done: false },
+      { title: "CSS 카드 레이아웃 연습", done: false },
+    ];
+
+    const listElement = document.querySelector("#todo-list");
+
+    // ===== 렌더링: 상태를 보고 화면 전체를 다시 그린다 =====
+    function render() {
+      listElement.innerHTML = ""; // 비우고
+      for (const todo of todos) { // 배열 그대로 다시 그린다
+        const li = document.createElement("li");
+        li.textContent = todo.title;
+        listElement.appendChild(li);
+      }
+    }
+
+    render(); // 처음 한 번 그리기
+
+    // 콘솔에서 실험해 보세요:
+    //   todos.push({ title: "새 할 일", done: false }); render();
+  </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+/* 실습 3: 선택자와 박스 모델 */
+
+/* 3색 팔레트: 배경 #F9FAFB, 글자 #1F2937, 포인트 #2563EB */
+
+/* 태그 선택자 */
+body {
+  font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+  background-color: #F9FAFB;
+  color: #1F2937;
+  margin: 0;
+}
+
+/* 본문 중앙 정렬: max-width + margin auto */
+main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+/* id 선택자 */
+#site-title {
+  text-align: center;
+  color: #2563EB;
+}
+
+/* 클래스 선택자: 박스 모델(margin, padding, border) */
+.card {
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  padding: 24px;
+  margin: 16px 0;
+}
+
+nav {
+  text-align: center;
+}
+
+nav a {
+  color: #2563EB;
+  text-decoration: none;
+  margin: 0 12px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #E5E7EB;
+  padding: 8px 12px;
+}
+
+footer {
+  text-align: center;
+  padding: 24px;
+  color: #6B7280;
+}

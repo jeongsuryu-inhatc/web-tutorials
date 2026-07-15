@@ -1,0 +1,12 @@
+# .gitignore 예시 — 프로젝트 루트에 ".gitignore" 파일명으로 저장
+# Git이 추적하지 않을 파일/폴더를 지정한다
+
+# Node.js 의존성 (8주차부터 필요)
+node_modules/
+
+# 환경 변수 등 비밀 정보 (절대 GitHub에 올리지 말 것)
+.env
+
+# 운영체제가 만드는 파일
+.DS_Store
+Thumbs.db

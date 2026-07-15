@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>홍길동의 홈페이지</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 실습 4: Flexbox 내비게이션 + 카드 레이아웃 -->
+  <header class="site-header">
+    <span class="logo">HONG</span>
+    <nav>
+      <a href="#about">소개</a>
+      <a href="#hobbies">취미</a>
+      <a href="#contact">연락처</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="about" class="card">
+      <h2>소개</h2>
+      <p>안녕하세요, 웹 프로그래밍을 배우고 있는 홍길동입니다.</p>
+    </section>
+
+    <h2>취미</h2>
+    <!-- flex로 가로 배치되는 3개의 카드 -->
+    <section id="hobbies" class="card-row">
+      <div class="card">
+        <h3>코딩</h3>
+        <p>작은 웹 페이지를 만들며 배우는 중입니다.</p>
+      </div>
+      <div class="card">
+        <h3>음악 감상</h3>
+        <p>코딩할 때는 잔잔한 음악을 듣습니다.</p>
+      </div>
+      <div class="card">
+        <h3>산책</h3>
+        <p>머리가 복잡할 때는 걷습니다.</p>
+      </div>
+    </section>
+
+    <section id="contact" class="card">
+      <h2>연락처</h2>
+      <form>
+        <p><label>이름 <input type="text" name="name"></label></p>
+        <p><label>이메일 <input type="email" name="email"></label></p>
+        <p><label>메시지<br><textarea name="message" rows="4"></textarea></label></p>
+        <button type="submit">보내기</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 홍길동</p>
+  </footer>
+</body>
+</html>

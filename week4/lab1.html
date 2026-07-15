@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>실습 1 - 반복문</title>
+</head>
+<body>
+  <h1>실습 1: 반복문 (콘솔 확인)</h1>
+
+  <script>
+    // for문: 2~9단 구구단
+    for (let dan = 2; dan <= 9; dan++) {
+      console.log(`--- ${dan}단 ---`);
+      for (let i = 1; i <= 9; i++) {
+        console.log(`${dan} x ${i} = ${dan * i}`);
+      }
+    }
+
+    // while문: 1부터 100까지의 합
+    let sum = 0;
+    let n = 1;
+    while (n <= 100) {
+      sum += n; // sum = sum + n
+      n++;
+    }
+    console.log("1부터 100까지의 합:", sum); // 5050
+  </script>
+</body>
+</html>
