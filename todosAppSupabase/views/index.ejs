@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Todos</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <h1>Todos</h1>
+      <p class="summary">
+        <% if (total === 0) { %>
+          할 일을 추가해 보세요 ✨
+        <% } else if (remaining === 0) { %>
+          모두 완료했어요 🎉
+        <% } else { %>
+          <strong><%= remaining %></strong>개 남음 / 총 <%= total %>개
+        <% } %>
+      </p>
+    </header>
+
+    <form class="add-form" action="/todos" method="POST" autocomplete="off">
+      <input type="text" name="title" placeholder="무엇을 해야 하나요?" maxlength="200" required autofocus />
+      <button type="submit" aria-label="추가">+</button>
+    </form>
+
+    <nav class="filters">
+      <a href="/" class="<%= filter === 'all' ? 'active' : '' %>">전체</a>
+      <a href="/?filter=active" class="<%= filter === 'active' ? 'active' : '' %>">진행 중</a>
+      <a href="/?filter=done" class="<%= filter === 'done' ? 'active' : '' %>">완료</a>
+    </nav>
+
+    <ul class="todo-list">
+      <% if (todos.length === 0) { %>
+        <li class="empty">표시할 항목이 없어요</li>
+      <% } %>
+      <% todos.forEach((todo) => { %>
+        <li class="todo <%= todo.done ? 'done' : '' %>">
+          <form action="/todos/<%= todo.id %>/toggle" method="POST">
+            <button type="submit" class="check" aria-label="완료 토글">
+              <%= todo.done ? '✓' : '' %>
+            </button>
+          </form>
+          <span class="title"><%= todo.title %></span>
+          <form action="/todos/<%= todo.id %>/delete" method="POST">
+            <button type="submit" class="delete" aria-label="삭제">×</button>
+          </form>
+        </li>
+      <% }) %>
+    </ul>
+
+    <% if (total - remaining > 0) { %>
+      <form class="clear-form" action="/todos/clear-done" method="POST">
+        <button type="submit">완료된 항목 지우기 (<%= total - remaining %>)</button>
+      </form>
+    <% } %>
+  </main>
+</body>
+</html>
