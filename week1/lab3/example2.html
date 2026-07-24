@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>example2 — 클릭 이벤트와 카운터</title>
+</head>
+<body>
+  <h1 id="count">0</h1>
+  <button id="increaseBtn">+1 증가</button>
+  <button id="resetBtn">초기화</button>
+
+  <script>
+    const countEl = document.getElementById("count");
+    const increaseBtn = document.getElementById("increaseBtn");
+    const resetBtn = document.getElementById("resetBtn");
+
+    let count = 0;
+
+    // addEventListener: 특정 요소에 "click" 같은 이벤트가 발생하면
+    // 정해진 함수(이벤트 핸들러)를 실행하도록 등록한다.
+    increaseBtn.addEventListener("click", () => {
+      count = count + 1;
+      countEl.textContent = count;
+    });
+
+    resetBtn.addEventListener("click", () => {
+      count = 0;
+      countEl.textContent = count;
+    });
+  </script>
+</body>
+</html>

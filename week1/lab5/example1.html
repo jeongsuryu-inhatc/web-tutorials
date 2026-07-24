@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>example1 — 선택자와 텍스트 스타일</title>
+  <style>
+    /* 태그 선택자: 모든 <h1>에 적용 */
+    h1 {
+      color: darkblue;
+      text-align: center;
+    }
+
+    /* 클래스 선택자: class="highlight"인 요소에 적용 */
+    .highlight {
+      color: crimson;
+      font-weight: bold;
+    }
+
+    /* id 선택자: id="intro"인 요소 하나에만 적용 */
+    #intro {
+      font-size: 20px;
+      font-style: italic;
+    }
+
+    p {
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <h1>선택자와 텍스트 스타일 연습</h1>
+
+  <p id="intro">이 문단은 id 선택자로 스타일이 적용되었습니다.</p>
+
+  <p>
+    이 문장에는 <span class="highlight">강조하고 싶은 부분</span>이
+    클래스 선택자로 꾸며져 있습니다.
+  </p>
+</body>
+</html>

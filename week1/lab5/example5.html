@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>example5 — 위치 지정(position)</title>
+  <style>
+    /* relative: 원래 자리를 기준으로 하되, 이 요소를 기준점으로 삼을 수 있게 함 */
+    .photo-wrapper {
+      position: relative;
+      width: 220px;
+      height: 150px;
+      background-color: #ccc;
+      border-radius: 8px;
+    }
+
+    /* absolute: 가장 가까운 position:relative 조상(.photo-wrapper) 기준으로 배치 */
+    .badge {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+
+      background-color: crimson;
+      color: white;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>위치 지정(position) 연습</h1>
+
+  <div class="photo-wrapper">
+    <span class="badge">NEW</span>
+  </div>
+
+  <p>
+    .photo-wrapper에 position: relative가 없으면 .badge는 화면 전체를
+    기준으로 배치된다. 직접 지워보며 차이를 확인해 보자.
+  </p>
+</body>
+</html>

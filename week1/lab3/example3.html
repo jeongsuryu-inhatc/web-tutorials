@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>example3 — 입력값 읽어오기</title>
+</head>
+<body>
+  <input type="text" id="nameInput" placeholder="이름을 입력하세요" />
+  <button id="greetBtn">인사하기</button>
+  <p id="result"></p>
+
+  <script>
+    const nameInput = document.getElementById("nameInput");
+    const greetBtn = document.getElementById("greetBtn");
+    const resultEl = document.getElementById("result");
+
+    greetBtn.addEventListener("click", () => {
+      // input.value: <input> 태그에 사용자가 입력한 현재 값을 가져온다.
+      const name = nameInput.value;
+
+      if (name.trim() === "") {
+        resultEl.textContent = "이름을 입력해 주세요!";
+        return;
+      }
+
+      resultEl.textContent = `안녕하세요, ${name}님! 반갑습니다.`;
+    });
+  </script>
+</body>
+</html>

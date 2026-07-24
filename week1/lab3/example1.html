@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>example1 — 요소 선택하고 글자 바꾸기</title>
+</head>
+<body>
+  <!-- id="title"인 h1과 id="desc"인 p를 JS에서 선택해 내용을 바꿔볼 것이다. -->
+  <h1 id="title">원래 제목</h1>
+  <p id="desc">원래 설명 문구입니다.</p>
+
+  <script>
+    // document.getElementById: id 속성으로 요소 하나를 선택
+    const titleEl = document.getElementById("title");
+    // document.querySelector: CSS 선택자로 요소 하나를 선택 (여기서는 #desc)
+    const descEl = document.querySelector("#desc");
+
+    // textContent: 요소 안의 글자를 읽거나 바꿀 수 있다.
+    console.log("변경 전 제목:", titleEl.textContent);
+
+    titleEl.textContent = "DOM으로 바뀐 제목";
+    descEl.textContent = "이 문장은 JavaScript가 실행되며 바뀌었습니다.";
+
+    console.log("변경 후 제목:", titleEl.textContent);
+  </script>
+</body>
+</html>
