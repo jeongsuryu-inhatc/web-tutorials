@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>S3 파일 업로드</title>
+	<style>
+		body { font-family: sans-serif; max-width: 640px; margin: 40px auto; padding: 0 16px; }
+		h1 { font-size: 1.4rem; }
+		.message { background: #e6f4ea; border: 1px solid #b7dfc2; padding: 10px 14px; border-radius: 6px; margin-bottom: 16px; }
+		form { margin-bottom: 24px; }
+		button { padding: 6px 16px; cursor: pointer; }
+		table { border-collapse: collapse; width: 100%; }
+		th, td { border-bottom: 1px solid #ddd; padding: 8px; text-align: left; font-size: 0.9rem; }
+	</style>
+</head>
+<body>
+	<h1>S3 파일 업로드 (<%= bucketName %>)</h1>
+
+	<% if (message) { %>
+		<p class="message"><%= message %></p>
+	<% } %>
+
+	<form action="/upload" method="post" enctype="multipart/form-data">
+		<input type="file" name="file" required>
+		<button type="submit">업로드</button>
+	</form>
+
+	<h2>버킷 파일 목록</h2>
+	<% if (files.length === 0) { %>
+		<p>버킷에 파일이 없습니다.</p>
+	<% } else { %>
+		<table>
+			<tr><th>파일명</th><th>크기</th><th>수정 시각</th></tr>
+			<% files.forEach((file) => { %>
+				<tr>
+					<td><%= file.key %></td>
+					<td><%= file.size %> bytes</td>
+					<td><%= file.lastModified.toLocaleString('ko-KR') %></td>
+				</tr>
+			<% }) %>
+		</table>
+	<% } %>
+</body>
+</html>

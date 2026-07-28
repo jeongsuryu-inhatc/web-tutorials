@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>S3 파일 목록</title>
+	<style>
+		body { font-family: sans-serif; max-width: 800px; margin: 40px auto; padding: 0 16px; }
+		h1 { font-size: 1.4rem; }
+		h2 { font-size: 1.1rem; margin-top: 32px; }
+		.images { display: flex; flex-wrap: wrap; gap: 16px; }
+		figure { margin: 0; text-align: center; }
+		figure img { max-width: 240px; max-height: 240px; display: block; border: 1px solid #ddd; border-radius: 6px; }
+		figcaption { font-size: 0.85rem; margin-top: 6px; color: #555; }
+		ul { line-height: 1.8; }
+	</style>
+</head>
+<body>
+	<h1>S3 파일 목록 (<%= bucketName %>)</h1>
+
+	<h2>이미지</h2>
+	<% if (images.length === 0) { %>
+		<p>이미지 파일이 없습니다.</p>
+	<% } else { %>
+		<div class="images">
+			<% images.forEach((image) => { %>
+				<figure>
+					<img src="<%= image.url %>" alt="<%= image.key %>">
+					<figcaption><%= image.key %></figcaption>
+				</figure>
+			<% }) %>
+		</div>
+	<% } %>
+
+	<h2>기타 파일</h2>
+	<% if (others.length === 0) { %>
+		<p>기타 파일이 없습니다.</p>
+	<% } else { %>
+		<ul>
+			<% others.forEach((file) => { %>
+				<li><%= file.key %></li>
+			<% }) %>
+		</ul>
+	<% } %>
+</body>
+</html>
