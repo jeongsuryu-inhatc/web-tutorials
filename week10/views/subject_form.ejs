@@ -1,0 +1,5 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>성적 수정</title><%- include("partials/subject_style") %></head>
+<body><main><p class="eyebrow">SUBJECT / UPDATE</p><h1>성적 수정</h1><p class="intro">변경할 내용을 저장하세요.</p>
+  <section class="panel edit-panel"><form class="stack" method="POST" action="/subjects/<%= subject.id %>/edit"><label for="subject">과목명</label><input id="subject" name="subject" maxlength="100" value="<%= subject.subject %>" required><label for="score">점수</label><input id="score" name="score" type="number" min="0" max="100" step="1" value="<%= subject.score %>" required><div class="actions"><a class="button quiet" href="/subjects">취소</a><button class="primary" type="submit">저장</button></div></form></section>
+</main></body></html>

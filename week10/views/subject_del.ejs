@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>성적 CRUD</title><%- include("partials/subject_style") %></head>
+<body><main>
+  <p class="eyebrow">SUBJECT / CRUD</p><h1>성적 기록</h1><p class="intro">추가하고, 수정하고, 필요 없는 기록은 삭제하세요.</p>
+  <section class="panel"><form class="inline" method="POST" action="/subjects"><input name="subject" maxlength="100" placeholder="과목명" required><input name="score" type="number" min="0" max="100" step="1" placeholder="점수" required><button class="primary" type="submit">추가</button></form>
+    <table><thead><tr><th>ID</th><th>과목</th><th>점수</th><th></th></tr></thead><tbody>
+      <% if (subjects.length === 0) { %><tr><td colspan="4" class="empty">등록된 성적이 없습니다. 위에서 첫 기록을 추가해 보세요.</td></tr><% } %>
+      <% subjects.forEach(function (item) { %><tr><td><%= item.id %></td><td><%= item.subject %></td><td class="score"><%= item.score %>점</td><td class="actions"><a class="button quiet" href="/subjects/<%= item.id %>/edit">수정</a><form method="POST" action="/subjects/<%= item.id %>/delete" onsubmit="return confirm('이 성적을 삭제할까요?');"><button class="danger" type="submit">삭제</button></form></td></tr><% }); %>
+    </tbody></table>
+  </section>
+</main></body></html>
