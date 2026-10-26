@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><meta charset="UTF-8"><title>GET 2: 과목명 검색</title></head>
+<body>
+  <h1>GET 2: 과목명 검색</h1>
+  <form method="get" action="/">
+    <label>과목명 <input name="keyword" value="<%= keyword %>" maxlength="100"></label>
+    <button type="submit">과목명 검색</button>
+  </form>
+  <%- include("partials/sample_table", { subjects }) %>
+  <p>폼 또는 주소를 통해 요청하고 조회 결과를 확인하세요.</p>
+</body>
+</html>

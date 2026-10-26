@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><meta charset="UTF-8"><title>GET 4: 점수 정렬</title></head>
+<body>
+  <h1>GET 4: 점수 정렬</h1>
+  <form method="get" action="/">
+    <label>정렬
+      <select name="order">
+        <option value="desc" <%= order === "desc" ? "selected" : "" %>>높은 점수순</option>
+        <option value="asc" <%= order === "asc" ? "selected" : "" %>>낮은 점수순</option>
+      </select>
+    </label>
+    <button type="submit">점수 정렬</button>
+  </form>
+  <%- include("partials/sample_table", { subjects }) %>
+  <p>폼 또는 주소를 통해 요청하고 조회 결과를 확인하세요.</p>
+</body>
+</html>

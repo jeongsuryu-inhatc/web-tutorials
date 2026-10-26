@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><meta charset="UTF-8"><title>GET 3: 점수 범위 조회</title></head>
+<body>
+  <h1>GET 3: 점수 범위 조회</h1>
+  <form method="get" action="/">
+    <label>최소 점수 <input type="number" name="min" value="<%= min %>" required></label>
+    <label>최대 점수 <input type="number" name="max" value="<%= max %>" required></label>
+    <button type="submit">점수 범위 조회</button>
+  </form>
+  <%- include("partials/sample_table", { subjects }) %>
+  <p>폼 또는 주소를 통해 요청하고 조회 결과를 확인하세요.</p>
+</body>
+</html>
